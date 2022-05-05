@@ -50,28 +50,45 @@
 //       setLoading(false);
 //     });
 // }, []);
-  
+
 //    return <div className="cardContentData">cardContentData</div>;
 //   }
 
 // export default cardContentData;
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-export default function cardContentData() {
-  useEffect(() => {
-    const url = "https://calm-lowlands-56636.herokuapp.com/card";
+// export default function cardContentData() {
+//   useEffect(() => {
+//     const url = "https://calm-lowlands-56636.herokuapp.com/card";
 
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-      } catch (error) {
-        console.log("error", error);
-      }
-    };
+//     const fetchData = async () => {
+//       try {
+//         const response = await fetch(url);
+//         const json = await response.json();
+//         console.log(json);
+//       } catch (error) {
+//         console.log("error", error);
+//       }
+//     };
 
-    fetchData();
-  }, []);
+//     fetchData();
+//   }, []);
+// }
+
+import React from "react";
+import axios from "axios";
+
+export default class cardContentData extends React.Component {
+  state = {
+    cards: [],
+  };
+  //http://localhost:5000/card
+  //https://jsonplaceholder.typicode.com/users
+  componentDidMount() {
+    axios.get("https://calm-lowlands-56636.herokuapp.com/card").then((res) => {
+      const cards = res.data;
+      this.setState({ cards });
+    });
+  }
 }
