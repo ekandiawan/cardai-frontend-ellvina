@@ -1,25 +1,25 @@
-// const cardContentData = [
-//   {
-//     title: 'DBS Live Fresh',
-//     link: 'https://www.dbs.com.sg/iwov-resources/images/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card/prod-comparator-220x140-dbs-livefreshplat-new-aug14.png',
-//     description: 'This is DBS live Fresh card',
-//   },
-//   {
-//     title: 'Citi Cashback Card',
-//     link: '/card/citi cashback.jpg',
-//     description: 'This is Citi Cashback card',
-//   },
-//   {
-//     title: 'POSB Everyday Card',
-//     link: '/card/posb everyday.jpg',
-//     description: 'This is POSB Everyday Card',
-//   },
-//   {
-//     title: 'Amex Krisflyer Card',
-//     link: '/card/Amex Krisflyer.jpg',
-//     description: 'This is Amex Krisflyer Card',
-//   },
-// ];
+const cardContentData = [
+  {
+    title: "DBS Live Fresh",
+    link: "https://www.dbs.com.sg/iwov-resources/images/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card/prod-comparator-220x140-dbs-livefreshplat-new-aug14.png",
+    description: "This is DBS live Fresh card",
+  },
+  {
+    title: "Citi Cashback Card",
+    link: "/card/citi cashback.jpg",
+    description: "This is Citi Cashback card",
+  },
+  {
+    title: "POSB Everyday Card",
+    link: "/card/posb everyday.jpg",
+    description: "This is POSB Everyday Card",
+  },
+  {
+    title: "Amex Krisflyer Card",
+    link: "/card/Amex Krisflyer.jpg",
+    description: "This is Amex Krisflyer Card",
+  },
+];
 
 // import { useState, useEffect } from "react";
 
@@ -76,32 +76,32 @@
 //   }, []);
 // }
 
-import React from "react";
-import axios from "axios";
+// import React from 'react';
+// import axios from 'axios';
 
-export default class cardContentData extends React.Component {
-  state = {
-    cards: [],
-  };
+// export default class cardContentData extends React.Component {
+//   state = {
+//     cards: [],
+//   };
 
-  componentDidMount() {
-    axios.get(`https://calm-lowlands-56636.herokuapp.com/card`).then((res) => {
-      const cards = res.data;
-      this.setState({ cards });
-    });
-  }
+//   componentDidMount() {
+//     axios.get(`https://calm-lowlands-56636.herokuapp.com/card`).then((res) => {
+//       const cards = res.data;
+//       this.setState({ cards });
+//     });
+//   }
 
-  render() {
-    return (
-      <ul>
-        {this.state.cards.map(
-          (card) => (
-            (<li key={card.id}>{card.cardName}</li>),
-            (<li key={card.id}>{card.cardImage}</li>),
-            (<li key={card.id}>{card.cardDescription}</li>)
-          )
-        )}
-      </ul>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <ul>
+//         {this.state.cards.map(
+//           (card) => (
+//             (<li key={card.id}>{card.cardName}</li>),
+//             (<li key={card.id}>{card.cardImage}</li>),
+//             (<li key={card.id}>{card.cardDescription}</li>)
+//           )
+//         )}
+//       </ul>
+//     );
+//   }
+// }
