@@ -10,12 +10,12 @@ const CardContent = () => (
       {cardContentData.map((col, i) => (
         <Col key={i} md={5} className="mb-4">
           <h6 className="mb-3">
-            <a target="_blank" rel="noopener noreferrer" href={col.link}>
-              {col.title}
+            <a target="_blank" rel="noopener noreferrer" href={col.cardImage}>
+              {col.cardName}
             </a>
           </h6>
-          <img src={col.link} class="card__image" />
-          <p>{col.description}</p>
+          <img src={col.Image} class="card__image" />
+          <p>{col.cardDescription}</p>
         </Col>
       ))}
     </Row>
