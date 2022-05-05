@@ -1,31 +1,87 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
-  "engines": {
-    "node": "16.x"
-  },
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "docusaurus/website"
+  ],
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
-  },
-  "dependencies": {
-    "ejs": "^3.1.5",
-    "express": "^4.15.2"
+    "build": "cd packages/react-scripts && node bin/react-scripts.js build",
+    "changelog": "lerna-changelog",
+    "create-react-app": "node tasks/cra.js",
+    "e2e": "tasks/e2e-simple.sh",
+    "e2e:docker": "tasks/local-test.sh",
+    "postinstall": "npm run build:prod -w react-error-overlay",
+    "publish": "tasks/publish.sh",
+    "start": "cd packages/react-scripts && node bin/react-scripts.js start",
+    "screencast": "node ./tasks/screencast.js",
+    "screencast:error": "svg-term --cast jyu19xGl88FQ3poMY8Hbmfw8y --out screencast-error.svg --window --at 12000 --no-cursor",
+    "alex": "alex .",
+    "test:integration": "jest test/integration",
+    "test": "cd packages/react-scripts && node bin/react-scripts.js test",
+    "format": "prettier --write 'packages/*/*.js' 'packages/*/!(node_modules)/**/*.js'"
   },
   "devDependencies": {
-    "got": "^11.3.0",
-    "tape": "^4.7.0"
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "alex": "^10.0.0",
+    "eslint": "^8.3.0",
+    "execa": "^5.1.1",
+    "fs-extra": "^10.0.0",
+    "get-port": "^5.1.1",
+    "globby": "^11.0.4",
+    "husky": "^4.3.8",
+    "jest": "^27.4.3",
+    "lerna": "^4.0.0",
+    "lerna-changelog": "^2.2.0",
+    "lint-staged": "^12.1.2",
+    "meow": "^9.0.0",
+    "multimatch": "^5.0.0",
+    "prettier": "^2.5.0",
+    "puppeteer": "^13.4.1",
+    "strip-ansi": "^6.0.1",
+    "svg-term-cli": "^2.1.1",
+    "tempy": "^1.0.1",
+    "wait-for-localhost": "^3.3.0",
+    "web-vitals": "^2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,yml,yaml,css,scss,ts,tsx,md}": [
+      "prettier --write"
+    ]
+  },
+  "name": "cardai-frontend",
+  "description": "<img alt=\"Logo\" align=\"right\" src=\"https://create-react-app.dev/img/logo.svg\" width=\"20%\" />",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "git+https://github.com/yulianisya/cardai-frontend.git"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yulianisya/cardai-frontend/issues"
+  },
+  "homepage": ".",
+  "dependencies": {
+    "@auth0/auth0-react": "^1.9.0",
+    "@googlemaps/react-wrapper": "^1.1.30",
+    "axios": "^0.26.1",
+    "google-maps-react": "^2.0.6",
+    "nodejs": "^0.0.0",
+    "react-bootstrap": "^2.2.0",
+    "react-next-table": "^1.1.4",
+    "react-syntax-highlighter": "^15.4.5",
+    "react-table": "^7.7.0",
+    "sass": "^1.50.0"
+  }
 }

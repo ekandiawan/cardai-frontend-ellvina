@@ -1,0 +1,78 @@
+// MIXINGS
+
+.CategoryElement {
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  line-height: normal;
+  margin-right: 0px;
+  padding: 0 30px 10px 30px;
+  position: relative;
+  text-transform: capitalize;
+  vertical-align: top;
+  text-align: center;
+  border-bottom: 2px solid white;
+  -webkit-font-smoothing: subpixel-antialiased;
+  height: 34px;
+  transition: color linear 0.1s;
+
+  &:hover {
+    color: grey;
+    transition: all ease 0.1s;
+  }
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    left: 50%;
+  }
+}
+
+.CategoryElementSelected {
+  color: blue;
+  font-weight: bold;
+  &:hover {
+    color: blue;
+  }
+  &:after {
+    transition: all linear 0.1s;
+    width: 100%;
+    left: 0;
+  }
+}
+
+// BEM for CategoryBar
+
+.CategoryBar {
+  display: flex;
+  font-size: 0;
+  width: auto;
+  height: 34px;
+  clear: both;
+  overflow: visible;
+
+  &__List {
+    flex: 1;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    height: 34px;
+    overflow: hidden;
+  }
+
+  &__Category {
+    @extend .CategoryElement;
+
+    &--Selected {
+      @extend .CategoryElementSelected;
+    }
+  }
+}
