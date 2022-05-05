@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import cardContentData from '../utils/card-content-data';
-import { Col, Row } from 'react-bootstrap';
+import cardContentData from "../utils/card-content-data";
+import { Col, Row } from "react-bootstrap";
 
 const CardContent = () => (
   <div className="next-steps my-5">
@@ -14,7 +14,7 @@ const CardContent = () => (
               {col.cardName}
             </a>
           </h6>
-          <img src={col.Image} class="card__image" />
+          <img src={col.cardImage} class="card__image" />
           <p>{col.cardDescription}</p>
         </Col>
       ))}
