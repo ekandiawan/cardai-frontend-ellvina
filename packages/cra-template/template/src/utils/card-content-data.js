@@ -21,37 +21,57 @@
 //   },
 // ];
 
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
-export default function cardContentData() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+// export default function cardContentData() {
+//   const [data, setData] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
 
-  useEffect(() => {
-  fetch(`https://calm-lowlands-56636.herokuapp.com/card`)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
-        );
-      }
-      return response.json();
-    })
-    .then((actualData) => {
-      setData(actualData);
-      setError(null);
-    })
-    .catch((err) => {
-      setError(err.message);
-      setData(null);
-    })
-    .finally(() => {
-      setLoading(false);
-    });
-}, []);
+//   useEffect(() => {
+//   fetch(`https://calm-lowlands-56636.herokuapp.com/card`)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(
+//           `This is an HTTP error: The status is ${response.status}`
+//         );
+//       }
+//       return response.json();
+//     })
+//     .then((actualData) => {
+//       setData(actualData);
+//       setError(null);
+//     })
+//     .catch((err) => {
+//       setError(err.message);
+//       setData(null);
+//     })
+//     .finally(() => {
+//       setLoading(false);
+//     });
+// }, []);
   
-   return <div className="cardContentData">cardContentData</div>;
-  }
+//    return <div className="cardContentData">cardContentData</div>;
+//   }
 
 // export default cardContentData;
+
+import { useEffect } from "react";
+
+export default function cardContentData() {
+  useEffect(() => {
+    const url = "https://calm-lowlands-56636.herokuapp.com/card";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+}
