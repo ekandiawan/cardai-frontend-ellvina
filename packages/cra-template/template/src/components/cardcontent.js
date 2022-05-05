@@ -62,7 +62,8 @@ export default class cardContent extends React.Component {
     return (
       <div>
         <h1>
-          {this.state.cardName} {this.state.cardImage}{" "}
+          {this.state.cardName}
+          {this.state.cardImage}
           {this.state.cardDescription}
         </h1>
       </div>
