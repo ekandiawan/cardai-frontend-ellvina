@@ -29,7 +29,7 @@ export default function cardContentData() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-  fetch(`https://jsonplaceholder.typicode.com/posts`)
+  fetch(`https://calm-lowlands-56636.herokuapp.com/card`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(
@@ -38,9 +38,16 @@ export default function cardContentData() {
       }
       return response.json();
     })
-    .then((actualData) => console.log(actualData))
+    .then((actualData) => {
+      setData(actualData);
+      setError(null);
+    })
     .catch((err) => {
-      console.log(err.message);
+      setError(err.message);
+      setData(null);
+    })
+    .finally(() => {
+      setLoading(false);
     });
 }, []);
   
