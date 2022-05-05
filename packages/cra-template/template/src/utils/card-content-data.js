@@ -1,7 +1,7 @@
 const cardContentData = [
   {
     title: 'DBS Live Fresh',
-    link: '/card/dbs live fresh.jpg',
+    link: 'https://www.dbs.com.sg/iwov-resources/images/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card/prod-comparator-220x140-dbs-livefreshplat-new-aug14.png',
     description: 'This is DBS live Fresh card',
   },
   {
