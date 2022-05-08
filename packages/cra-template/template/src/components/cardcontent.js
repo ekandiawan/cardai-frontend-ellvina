@@ -17,9 +17,7 @@ export default class CardContent extends React.Component {
     return (
       <ul>
         {this.state.cards.map((card) => (
-          <li key={card.id}>
-            {card.cardName} {card.cardImage} {card.cardDescription}
-          </li>
+          <li key={card.id}>{card.cardName}</li>
         ))}
       </ul>
     );
