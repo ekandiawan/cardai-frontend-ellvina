@@ -8,7 +8,7 @@ export default class PersonList extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`https://calm-lowlands-56636.herokuapp.com/card`).then((res) => {
+    axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
       const cards = res.data;
       this.setState({ cards });
     });
@@ -31,7 +31,7 @@ export default class PersonList extends React.Component {
       <>
         <div className="next-steps my-5">
           <Row className="d-flex justify-content-between">
-            {this.state.cards.map((card) => (
+            {cards.map((card, id) => (
               <Col key={card.id} md={5} className="mb-4">
                 <h6 className="mb-3">
                   <a
@@ -39,7 +39,7 @@ export default class PersonList extends React.Component {
                     rel="noopener noreferrer"
                     href={card.cardImage}
                   >
-                    {card.cardName}
+                    {card.PersonListcardName}
                   </a>
                 </h6>
                 <img src={card.cardImage} class="card__image" />
