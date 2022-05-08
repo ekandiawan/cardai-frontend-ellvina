@@ -4,21 +4,21 @@ import axios from "axios";
 
 export default class PersonList extends React.Component {
   state = {
-    persons: [],
+    cards: [],
   };
 
   componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`).then((res) => {
-      const persons = res.data;
-      this.setState({ persons });
+    axios.get(`https://calm-lowlands-56636.herokuapp.com/card`).then((res) => {
+      const cards = res.data;
+      this.setState({ cards });
     });
   }
 
   render() {
     return (
       <ul>
-        {this.state.persons.map((person) => (
-          <li key={person.id}>{person.name}</li>
+        {this.state.cards.map((card) => (
+          <li key={card.id}>{card.cardName}</li>
         ))}
       </ul>
     );
