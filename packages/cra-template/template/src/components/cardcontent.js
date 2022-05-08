@@ -21,3 +21,5 @@ const CardContent = () => (
     </Row>
   </div>
 );
+
+export default CardContent;

@@ -20,3 +20,5 @@ const cardContentData = [
     description: "This is Amex Krisflyer Card",
   },
 ];
+
+export default cardContentData;
