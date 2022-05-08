@@ -1,0 +1,120 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  margin: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+.CategoryBar__Category,
+.CategoryElement {
+  -webkit-font-smoothing: subpixel-antialiased;
+  border-bottom: 2px solid #fff;
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 600;
+  height: 34px;
+  letter-spacing: 0.9px;
+  line-height: normal;
+  margin-right: 0;
+  padding: 0 30px 10px;
+  position: relative;
+  text-align: center;
+  text-transform: capitalize;
+  transition: color 0.1s linear;
+  vertical-align: top;
+}
+.CategoryBar__Category:hover,
+.CategoryElement:hover {
+  color: gray;
+  transition: all 0.1s ease;
+}
+.CategoryBar__Category:after,
+.CategoryElement:after {
+  background-color: currentColor;
+  bottom: 0;
+  content: " ";
+  height: 2px;
+  left: 0;
+  left: 50%;
+  position: absolute;
+  width: 0;
+}
+.CategoryBar__Category--Selected,
+.CategoryElementSelected {
+  color: blue;
+  font-weight: 700;
+}
+.CategoryBar__Category--Selected:hover,
+.CategoryElementSelected:hover {
+  color: blue;
+}
+.CategoryBar__Category--Selected:after,
+.CategoryElementSelected:after {
+  left: 0;
+  transition: all 0.1s linear;
+  width: 100%;
+}
+.CategoryBar {
+  clear: both;
+  display: flex;
+  font-size: 0;
+  height: 34px;
+  overflow: visible;
+  width: auto;
+}
+.CategoryBar__List {
+  flex: 1 1;
+  height: 34px;
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    -webkit-animation: App-logo-spin 20s linear infinite;
+    animation: App-logo-spin 20s linear infinite;
+  }
+}
+.App-header {
+  align-items: center;
+  background-color: #282c34;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+}
+.App-link {
+  color: #61dafb;
+}
+@-webkit-keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+@keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+/*# sourceMappingURL=main.a1a87409.css.map*/
