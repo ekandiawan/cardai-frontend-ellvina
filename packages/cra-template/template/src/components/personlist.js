@@ -31,8 +31,8 @@ export default class PersonList extends React.Component {
       <>
         <div className="next-steps my-5">
           <Row className="d-flex justify-content-between">
-            {this.state.cards.map((card, id) => (
-              <Col key={id} md={5} className="mb-4">
+            {this.state.cards.map((card) => (
+              <Col key={card.id} md={5} className="mb-4">
                 <h6 className="mb-3">
                   <a
                     target="_blank"
