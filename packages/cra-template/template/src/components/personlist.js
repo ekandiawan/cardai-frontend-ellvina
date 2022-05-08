@@ -31,8 +31,7 @@ export default class PersonList extends React.Component {
       <>
         <div className="next-steps my-5">
           <Row className="d-flex justify-content-between">
-            {this.state.cards.map(
-              (card, card.id),
+            {this.state.cards.map((card) => (
               <Col key={card.id} md={5} className="mb-4">
                 <h6 className="mb-3">
                   <a
@@ -46,7 +45,7 @@ export default class PersonList extends React.Component {
                 <img src={card.cardImage} class="card__image" />
                 <p>{card.cardDescription}</p>
               </Col>
-            )}
+            ))}
           </Row>
         </div>
       </>
