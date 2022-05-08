@@ -1,24 +1,55 @@
-const cardContentData = [
-  {
-    title: "DBS Live Fresh",
-    link: "https://www.dbs.com.sg/iwov-resources/images/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card/prod-comparator-220x140-dbs-livefreshplat-new-aug14.png",
-    description: "This is DBS live Fresh card",
-  },
-  {
-    title: "Citi Cashback Card",
-    link: "/card/citi cashback.jpg",
-    description: "This is Citi Cashback card",
-  },
-  {
-    title: "POSB Everyday Card",
-    link: "/card/posb everyday.jpg",
-    description: "This is POSB Everyday Card",
-  },
-  {
-    title: "Amex Krisflyer Card",
-    link: "/card/Amex Krisflyer.jpg",
-    description: "This is Amex Krisflyer Card",
-  },
-];
+import React from "react";
+import axios from "axios";
 
-export default cardContentData;
+export default class cardContentData extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      cards: [],
+    };
+  }
+
+  componentDidMount() {
+    // axios.get(`https://calm-lowlands-56636.herokuapp.com/card`).then((res) => {
+    //   const cards = res.data;
+    //   this.setState({ cards });
+    // });
+    fetch("https://calm-lowlands-56636.herokuapp.com/card")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            cards: result.cards,
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  }
+
+  render() {
+    const { error, isLoaded, cards } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          {cards.map((card) => (
+            <li key={i}>
+              {card.cardName} {card.cardImage} {card.cardDescription}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+}
