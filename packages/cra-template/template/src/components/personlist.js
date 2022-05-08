@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 
-export default class CardContent extends React.Component {
+export default class PersonList extends React.Component {
   state = {
     cards: [],
   };
