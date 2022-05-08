@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Col, Row } from "react-bootstrap";
+// import { Col, Row } from "react-bootstrap";
 
 export default class PersonList extends React.Component {
   state = {
